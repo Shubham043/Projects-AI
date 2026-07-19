@@ -1,8 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import Groq from 'groq-sdk';
+import { RetrievalService } from 'src/retrieval/retrieval.service';
 
 @Injectable()
 export class GenerationService {
+
     async generate(question: string, contextChunks: string[]): Promise<string> {
         const Groqclient = new Groq({
             apiKey: process.env.GROQ_API_KEY || '',
